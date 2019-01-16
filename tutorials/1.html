@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<script src="http://scratchblocks.github.io/js/scratchblocks-v3.1-min.js"></script>
+<script src="http://scratchblocks.github.io/js/translations-all-v3.1-min.js" charset="utf8"></script>
+<script src="p5.min.js"></script>
+<link rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>document.onload=function(){scratchblocks.renderMatching("sb", {inline: true});scratchblocks.renderMatching("p.scratchblocks")};</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+function toggledisplay(vari) {
+if (vari == 'none') {
+return '';
+}
+if (vari == '') {
+return 'none';
+}
+}
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+</script>
+
+<style>
+body div button {
+outline: solid blue 0px;
+transition: outline 0.1s;
+transition-timing-function: linear;
+}
+body div div button {
+outline: solid red 0px;
+transition: outline 0.1s;
+transition-timing-function: linear;
+}
+body div div button:hover {
+outline: solid red 5px;
+}
+body div button:hover {
+outline: solid blue 5px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  display: inline;
+}
+ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+ul li a.active {
+
+    background-color: #4CAF50;
+
+}
+ul li a {
+
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+body { margin:0;background-color: rgb(245,245,245);}
+</style>
+</head>
+<body onload="document.onload();hljs.initHighlightingOnLoad();defaultCanvas0.style.display='none'">
+<ul width="100%">
+  <li><a href="/index.html">Home</a></li>
+  <li><a href="/tutorials/newest.html">Newest item</a></li>
+  <li><a href="/tutorials/2.html">Next item</a></li>
+  <li><a href="/index.html">Previous item</a></li>
+  <li><a href="/1.html" class="active">First item</a></li>
+</ul>
+ 
+<div class="maindiv" style="margin:10px;">
+<script src="sketch.js"></script>
+
+<button text="Python 3" onclick="python3.style.display=toggledisplay(python3.style.display);">Python 3</button>
+<div id="python3" style="display: none">
+<pre><code class="python" id="py33dcode">
+try: import vpython #A full GlowScript and WebGL based 3D Python Graphics library
+except ImportError:
+  import os
+  os.system("pip install vpython") #If the import fails, install vpython.
+  import vpython
+box=vpython.box()
+
+</code></pre>
+
+<button onclick="download('main.py',py33dcode.textContent)">Download script</button>
+
+</div>
+<p></p>
+<button text="Scratch 2 or 3" onclick="scratch23.style.display=toggledisplay(scratch23.style.display);">Scratch 2 or 3</button>
+<div id="scratch23" style="display: none;">
+<p class="scratchblocks" id="scratch3d1">
+when green flag clicked
+set rotation style [don't rotate v]
+set [a v] to [-5]
+repeat (40)
+create clone of [myself v]
+wait (.) secs
+change [a v] by (0.25)
+end
+forever
+point towards [mouse pointer v]
+end
+when i start as a clone
+set [b v] to (a)
+go to front
+forever
+go to x: ((b) * ([sin v] of ([direction v] of [Sprite1 v]))) y: ((b) * ([cos v] of ([direction v] of [Sprite1 v])))
+end
+</p>
+<a target="_blank" href="https://scratch.mit.edu/projects/279960328/embed">Project</a>
+
+</div>
+<p></p>
+
+<button text="P5.js" onclick="defaultCanvas0.style.display=toggledisplay(defaultCanvas0.style.display);p5sketch.style.display=toggledisplay(p5sketch.style.display);">P5.js</button>
+<p></p>
+<iframe id="p5sketch" class="javascript" src="sketch.js" frameborder="0" width="auto" height="auto" style="display: none;"></iframe>
+
+<p></p>
+</div>    
+</body>
