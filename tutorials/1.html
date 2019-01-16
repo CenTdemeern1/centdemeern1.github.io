@@ -85,7 +85,7 @@ ul li a {
 body { margin:0;background-color: rgb(245,245,245);}
 </style>
 </head>
-<body onload="document.onload();hljs.initHighlightingOnLoad();defaultCanvas0.style.display='';defaultCanvas0.style.display=toggledisplay(defaultCanvas0.style.display);defaultCanvas0.style.display=toggledisplay(defaultCanvas0.style.display);">
+<body onload="document.onload();hljs.initHighlightingOnLoad();defaultCanvas0.style.display='';defaultCanvas0.style.display=toggledisplay(defaultCanvas0.style.display);defaultCanvas0.style.display=toggledisplay(defaultCanvas0.style.display);p5button.click();">
 <ul width="100%">
   <li><a href="/index.html">Home</a></li>
   <li><a href="/tutorials/newest.html">Newest item</a></li>
@@ -96,7 +96,7 @@ body { margin:0;background-color: rgb(245,245,245);}
  
 <div class="maindiv" style="margin:10px;">
 <h1>3D!</h1>
-<script src="sketch.js"></script>
+
 
 <button text="Python 3" onclick="python3.style.display=toggledisplay(python3.style.display);">Python 3</button>
 <div id="python3" style="display: none">
@@ -140,8 +140,10 @@ end
 </div>
 <p></p>
 
-<button text="P5.js" onclick="defaultCanvas0.style.display=toggledisplay(defaultCanvas0.style.display);p5sketch.style.display=toggledisplay(p5sketch.style.display);">P5.js</button>
+<button id="p5button" text="P5.js" onclick="defaultCanvas0.style.display=toggledisplay(defaultCanvas0.style.display);p5sketch.style.display=toggledisplay(p5sketch.style.display);">P5.js</button>
 <p></p>
+<script></script>
+<script src="sketch.js"></script>
 <iframe id="p5sketch" class="javascript" src="sketch.js" frameborder="0" width="auto" height="auto" style=""></iframe>
 
 <p></p>
